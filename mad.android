@@ -1,0 +1,71 @@
+MainActivity.java
+package com.example.wall_paper_pro;
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.WallpaperManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+import java.io.IOException;
+public class MainActivity extends AppCompatActivity {
+private Handler mHandler=new Handler();
+Integer [] ar1={R.drawable.img1,R.drawable.img2,R.drawable.img3};
+int i=0;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+}
+public void StartRepeating1(View v)
+{
+mToastrunnable.run();
+}
+public void StopRepeating1(View v)
+{
+mHandler.removeCallbacks(mToastrunnable);
+}
+private Runnable mToastrunnable=new Runnable(){
+@Override
+public void run() {
+WallpaperManager wallpaperManager =
+WallpaperManager.getInstance(getApplicationContext());
+try {
+wallpaperManager.setResource(ar1[i]);
+if(i>=ar1.length)
+i=0;
+else
+i++;
+} catch (IOException e) {
+e.printStackTrace();
+}
+mHandler.postDelayed(this, 5000);
+}
+};
+}
+
+
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+tools:context=".MainActivity">
+<Button
+android:id="@+id/B1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="START REPEAT"
+android:onClick="StartRepeating1"
+app:backgroundTint="#151515" />
+<Button
+android:id="@+id/B2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="STOP REPEAT"
+android:onClick="StopRepeating1"
