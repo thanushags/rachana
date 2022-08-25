@@ -1,0 +1,35 @@
+create table tourist
+    -> (tourist_id int(5) primary key,
+    -> country varchar(20),
+    -> age int(10),
+    -> TP_name varchar(20));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+
+create table Tourist_place (tp_id int(10) primary key, history varchar(20 ),kilometers int(3), state varchar(20), TP_name varchar(20));
+
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+
+create table visit (tp_id int(10), foreign key(tp_id) references Tourist_place(tp_id), visit_date date,tourist_id int(10),foreign key(tourist_id) references tourist(tourist_id));
+Query OK, 0 rows affected, 2 warnings (0.03 sec)
+
+
+create table email (email varchar(20),tourist_id int(10),foreign key(tourist_id) references tourist(tourist_id));
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+select state,count(tp_id) from Tourist_place group by state order by count(tp_id) desc limit 1;
++-----------+--------------+
+| state     | count(tp_id) |
++-----------+--------------+
+| karnataka |            3 |
++-----------+--------------+
+select * from Tourist_place where tp_id=(select tp_id from visit group by tp_id order by count(tp_id) desc limit 1);
++-------+---------+------------+-----------+---------+
+| tp_id | history | kilometers | state     | TP_name |
++-------+---------+------------+-----------+---------+
+|    11 | beauty  |        160 | karnataka | ooty    |
++-------+---------+------------+-----------+---------+
+
+
+
