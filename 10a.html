@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+    <style>
+        textarea{
+            
+        border-radius: 5px;
+        border: 2px solid gray;
+        }
+    </style>
+    <script>
+        $(function(){
+          var maxl=  $("textarea").attr('maxlength');
+          $("span").text(maxl);
+          
+         
+          $("textarea").keyup(function(){
+            var len = maxl - $(this).val().length;
+                        $("#sn").text(len);
+          });
+        });
+    </script>
+</head>
+<body style="background:whitesmoke;">
+   
+    <form action="#" method="post">
+        <h4>maximum <span>30</span> characters</h4>
+        <textarea name="ta" id="ta" cols="20" rows="10" maxlength="30"></textarea>
+        <br>
+       <h4> <span id="sn">30</span> characters remaining</h4>
+   
+  <label for=""><input type="checkbox" name="agree" id="agree">I agree the conditions</label>
+    </form>
+</body>
+</html>

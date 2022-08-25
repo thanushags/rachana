@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+    <script>
+        $(function(){
+$("#btn1").click(function(){
+    $("div").fadeIn(3000);
+})
+$("#btn2").click(function(){
+    $("div").fadeOut(3000);
+})
+        });
+    </script>
+</head>
+<body>
+  <div style="background-color:skyblue ; font-size: 20px;">
+   <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vitae aut qui. Itaque atque praesentium non provident, nisi molestias deleniti ipsa dolorem autem voluptas at, nulla voluptatem harum fuga veniam.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae tempore corporis aliquam debitis vel numquam beatae, neque voluptate, placeat libero similique dignissimos mollitia non error maiores et quibusdam. Dolor, praesentium?
+   </p>
+  </div> 
+  <div style="background-color: rgb(12, 165, 226);font-size: 20px;">
+    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat vitae aut qui. Itaque atque praesentium non provident, nisi molestias deleniti ipsa dolorem autem voluptas at, nulla voluptatem harum fuga veniam.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad ducimus repellendus laudantium iure dicta nostrum atque voluptate eum non consequuntur vel hic, eligendi eaque? Vel tenetur perferendis quae impedit beatae!
+    </p>
+  </div> 
+  <button id="btn1">Fade in </button>
+  <button id="btn2">Fade out </button>
+
+  
+</body>
+</html>
