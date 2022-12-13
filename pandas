@@ -1,0 +1,41 @@
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv("stu.csv")
+df
+
+df.tail(3)
+df['name']
+
+import pandas as pd
+import numpy as np
+
+#read the data from the dataset
+data=pd.read_csv("stu.csv")
+data.head(5)
+
+#remove duplicatye rows
+data.drop_duplicates(subset=["name"],keep="last",inplace=True)
+data.head(10)
+data.isnull().sum()
+
+#missing data
+#size of original data
+print(data.shape)
+
+#dropping the missing rows
+df_dropped=data.dropna()
+data.head()
+
+#fill with provided value
+data['address']=data['address'].fillna('puttur')
+data.head()
+
+#fill the provided value
+mean_val=data['mobile'].mean()
+data['mobile']=data['mobile'].fillna(mean_val)
+data.head()
+
+
+
+
